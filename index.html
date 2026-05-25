@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Plan podróży do Tajlandii — Jarek &amp; Wojtek, luty 2027. Bangkok → Chiang Mai → Koh Lanta. 14 dni, 8 osób.">
+<meta name="theme-color" content="#1A1A18">
+<meta property="og:title" content="Tajlandia 2027 🌴 — Plan podróży">
+<meta property="og:description" content="Bangkok → Chiang Mai → Koh Lanta · 14 dni · 2 rodziny · luty 2027">
+<title>Tajlandia 2027 🌴</title>
+<style>
+:root {
+  --gold:#C9A84C; --gold-light:#F0D080; --cream:#FAF7F2; --dark:#1A1A18;
+  --text:#2C2C28; --muted:#7A7A70; --border:#E8E2D6;
+  --teal:#1D9E75; --teal-light:#E1F5EE;
+  --blue:#185FA5; --blue-light:#E6F1FB;
+  --amber:#BA7517; --amber-light:#FAEEDA;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(26,26,24,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.2);display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+nav::-webkit-scrollbar{display:none;}
+.nav-logo{padding:.7rem 1.2rem;color:var(--gold);font-size:18px;flex-shrink:0;}
+.nav-links{display:flex;flex:1;}
+.nav-links a{display:flex;align-items:center;gap:6px;padding:.7rem 1rem;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap;transition:color .2s;border-bottom:2px solid transparent;}
+.nav-links a:hover,.nav-links a.active{color:white;border-bottom-color:var(--gold);}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0D3B5E 0%,#1A6B8A 25%,#2E9E8F 45%,#C97B3A 70%,#8B2E2E 100%);background-image:url('https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&w=1920&q=85');background-size:cover;background-position:center;animation:kenburns 18s ease-out forwards;}
+@keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.08);}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(26,26,24,.88) 100%);}
+.hero-thumb{position:absolute;top:1.5rem;right:1.5rem;width:90px;height:60px;border-radius:8px;overflow:hidden;border:2px solid rgba(201,168,76,.4);}
+.hero-thumb img{width:100%;height:100%;object-fit:cover;}
+.hero-content{position:relative;z-index:1;padding:3rem 2rem 3.5rem;max-width:700px;}
+.hero-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.hero h1{font-family:Georgia,serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:700;line-height:1.05;color:white;margin-bottom:.75rem;}
+.hero h1 span{color:var(--gold-light);}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.65);margin-bottom:2rem;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.hero-chip{background:rgba(255,255,255,.1);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:5px 14px;font-size:13px;color:rgba(255,255,255,.85);}
+
+/* LAYOUT */
+.container{max-width:880px;margin:0 auto;padding:0 1.5rem;}
+.section{padding:2.75rem 0;border-bottom:1px solid var(--border);}
+.section:last-child{border-bottom:none;}
+.section-title{font-family:Georgia,serif;font-size:1.55rem;font-weight:600;color:var(--dark);margin-bottom:1.25rem;}
+.section-title span{display:block;font-family:inherit;font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+
+/* LINKS */
+a.pl{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;text-decoration-style:dotted;}
+a.pl:hover{color:var(--amber);}
+
+/* OVERVIEW */
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin-bottom:1.5rem;}
+.ov-card{background:white;border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
+.ov-card.clickable{cursor:pointer;transition:border-color .2s,box-shadow .2s;}
+.ov-card.clickable:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,.15);}
+.ov-icon{font-size:22px;margin-bottom:6px;}
+.ov-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.ov-value{font-size:15px;font-weight:500;color:var(--dark);}
+.ov-chevron{font-size:11px;color:var(--gold);margin-top:2px;}
+
+/* WEATHER MODAL */
+.weather-modal{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:1rem;}
+.weather-modal.open{display:flex;}
+.weather-box{background:var(--dark);color:white;border-radius:16px;padding:1.75rem;max-width:480px;width:100%;position:relative;}
+.weather-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,.5);font-size:20px;cursor:pointer;line-height:1;}
+.weather-box h3{font-family:Georgia,serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:1.25rem;}
+.climate-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:13px;}
+.climate-row:last-child{border-bottom:none;}
+.climate-label{color:rgba(255,255,255,.55);}
+.climate-val{font-weight:500;color:white;}
+.climate-bar-wrap{flex:1;margin:0 12px;background:rgba(255,255,255,.1);border-radius:4px;height:5px;}
+.climate-bar{height:5px;border-radius:4px;background:var(--gold);}
+.weather-note{font-size:12px;color:rgba(255,255,255,.35);margin-top:1rem;}
+
+/* FAMILIES */
+.families{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;}
+.family-card{background:white;border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;}
+.family-name{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:8px;}
+.family-members{display:flex;flex-wrap:wrap;gap:6px;}
+.member-pill{font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);}
+.pill-adult{background:var(--dark);color:white;border-color:var(--dark);}
+.pill-kid{background:var(--amber-light);color:var(--amber);border-color:#EF9F27;}
+
+/* TIMELINE */
+.timeline-bar{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.5rem;height:52px;}
+.tl{display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:12px;font-weight:500;}
+.tl-bkk{background:#2C2C28;color:white;flex:2;}
+.tl-cnx{background:#3C3489;color:white;flex:3;}
+.tl-koh{background:var(--blue);color:white;flex:7;}
+.tl small{font-size:10px;font-weight:400;opacity:.7;}
+
+/* SVG MAP */
+.map-wrap{background:#D6ECF7;border-radius:14px;border:1px solid var(--border);margin-bottom:1.5rem;padding:1rem;position:relative;overflow:hidden;}
+.map-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:.5rem;}
+.map-label{font-size:9px;fill:#555;font-family:sans-serif;}
+.map-sea{font-size:8px;fill:#7FB8D4;font-family:sans-serif;font-style:italic;}
+.city-dot{cursor:pointer;transition:r .2s;}
+.city-dot:hover{filter:drop-shadow(0 0 4px var(--gold));}
+.city-num{fill:white;font-size:8px;font-weight:700;font-family:sans-serif;pointer-events:none;}
+
+/* PHASES */
+.phase{background:white;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:14px;}
+.phase-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;}
+.num-bkk{background:var(--dark);color:var(--gold);}
+.num-cnx{background:#EEEDFE;color:#3C3489;}
+.num-koh{background:var(--blue-light);color:var(--blue);}
+.phase-meta{flex:1;}
+.phase-title-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+.phase-name{font-size:17px;font-weight:500;color:var(--dark);}
+.phase-days-badge{font-size:11px;font-weight:500;padding:2px 10px;border-radius:20px;background:var(--teal-light);color:var(--teal);}
+.phase-desc{font-size:13px;color:var(--muted);}
+.phase-divider{border:none;border-top:1px solid var(--border);margin:12px 0;}
+.days-list{list-style:none;}
+.day-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #F3EFE8;}
+.day-item:last-child{border-bottom:none;}
+.day-num{font-size:12px;font-weight:600;color:var(--gold);min-width:44px;padding-top:1px;}
+.day-content{flex:1;}
+.day-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:3px;}
+.day-acts{font-size:13px;color:var(--muted);}
+.act-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px;}
+.act-tag{font-size:11px;padding:2px 8px;border-radius:20px;background:#F3EFE8;color:var(--muted);border:1px solid var(--border);}
+.act-tag.warn{background:var(--amber-light);color:var(--amber);border-color:#EF9F27;}
+.act-tag.ok{background:var(--teal-light);color:var(--teal);border-color:#5DCAA5;}
+
+/* ISLANDS */
+.island-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:1rem;}
+.island-card{background:white;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;}
+.island-card.best{border:2px solid var(--gold);}
+.island-best-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--dark);color:var(--gold);padding:3px 10px;border-radius:20px;margin-bottom:8px;}
+.island-name{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+.island-note{font-size:13px;color:var(--muted);line-height:1.5;}
+
+/* FLIGHTS */
+.flights-monitor{background:var(--dark);border-radius:14px;padding:1.5rem;margin-bottom:14px;color:white;}
+.flights-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:8px;}
+.flights-title{font-size:14px;font-weight:600;color:var(--gold-light);}
+.flights-route{font-size:12px;color:rgba(255,255,255,.5);}
+.flights-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
+.fl-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity .2s;}
+.fl-btn:hover{opacity:.85;}
+.fl-google{background:#4285F4;color:white;}
+.fl-sky{background:#0770E3;color:white;}
+.fl-kayak{background:#FF690F;color:white;}
+.flights-note{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6;}
+.flights-note strong{color:rgba(255,255,255,.7);display:block;margin-bottom:4px;}
+.alert-steps{list-style:none;margin-top:.75rem;}
+.alert-steps li{font-size:12px;color:rgba(255,255,255,.55);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:8px;}
+.alert-steps li:last-child{border-bottom:none;}
+.alert-steps li::before{content:'→';color:var(--gold);flex-shrink:0;}
+
+/* BUDGET */
+.budget-table{width:100%;border-collapse:collapse;}
+.budget-table td{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.budget-table td:last-child{text-align:right;font-weight:500;}
+.budget-table tr:last-child td{border-bottom:none;font-size:15px;font-weight:600;color:var(--dark);}
+.budget-total-row td{padding-top:14px;border-top:2px solid var(--dark);}
+
+/* PRACTICAL */
+.practical-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+.prac-card{background:white;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;}
+.prac-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px;}
+.prac-list{list-style:none;}
+.prac-list li{font-size:13px;color:var(--text);padding:4px 0;border-bottom:1px solid #F3EFE8;display:flex;gap:8px;}
+.prac-list li:last-child{border-bottom:none;}
+.prac-list li::before{content:'—';color:var(--gold);flex-shrink:0;}
+
+/* TIPS */
+.tip-box{background:var(--dark);border-radius:12px;padding:1.25rem 1.5rem;display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.tip-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.tip-text{font-size:13px;color:rgba(255,255,255,.8);line-height:1.6;}
+.tip-text strong{color:var(--gold-light);display:block;margin-bottom:2px;}
+.tip-text a.pl{text-decoration-color:var(--gold);}
+.tip-text a.pl:hover{color:var(--gold-light);}
+
+/* COPY LINK */
+.copy-wrap{display:flex;align-items:center;gap:10px;margin-top:1.5rem;background:white;border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;}
+.copy-url{font-size:12px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.copy-btn{background:var(--dark);color:var(--gold);border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;flex-shrink:0;transition:background .2s;}
+.copy-btn:hover{background:#333;}
+.copy-confirm{font-size:12px;color:var(--teal);display:none;}
+
+/* FOOTER */
+.footer{background:var(--dark);color:rgba(255,255,255,.35);text-align:center;padding:1.75rem 1.5rem;font-size:12px;line-height:1.8;}
+
+@media(max-width:600px){
+  .families{grid-template-columns:1fr;}
+  .hero h1{font-size:2.5rem;}
+  .hero-content{padding:2rem 1.25rem 3rem;}
+  .nav-links a{padding:.7rem .75rem;font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🌴</div>
+  <div class="nav-links">
+    <a href="#plan">🌴 Plan</a>
+    <a href="#bangkok">🏙 Bangkok</a>
+    <a href="#chiangmai">🐘 Chiang Mai</a>
+    <a href="#kohlanta">🏖 Koh Lanta</a>
+    <a href="#loty">✈ Loty</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <p class="hero-label">Plan podróży · Dwie rodziny</p>
+    <h1>Tajlandia<br><span>Luty 2027</span></h1>
+    <p class="hero-sub">14 dni · 8 osób · Bangkok → Chiang Mai → Koh Lanta</p>
+    <div class="hero-chips">
+      <span class="hero-chip">✈ Warszawa (WAW)</span>
+      <span class="hero-chip">🏖 Wybrzeże Andamanu</span>
+      <span class="hero-chip">👨‍👩‍👧‍👦 2 rodziny z dziećmi</span>
+      <span class="hero-chip">☀ Szczyt sezonu</span>
+    </div>
+  </div>
+</div>
+
+<!-- WEATHER MODAL -->
+<div class="weather-modal" id="weatherModal" onclick="if(event.target===this)closeWeather()">
+  <div class="weather-box">
+    <button class="weather-close" onclick="closeWeather()">✕</button>
+    <h3>🌤 Pogoda w Tajlandii — luty</h3>
+    <div class="climate-row">
+      <span class="climate-label">Temperatura dzienna</span>
+      <div class="climate-bar-wrap"><div class="climate-bar" style="width:85%"></div></div>
+      <span class="climate-val">31°C</span>
+    </div>
+    <div class="climate-row">
+      <span class="climate-label">Temperatura nocna</span>
+      <div class="climate-bar-wrap"><div class="climate-bar" style="width:55%"></div></div>
+      <span class="climate-val">24°C</span>
+    </div>
+    <div class="climate-row">
+      <span class="climate-label">Opady (Koh Lanta)</span>
+      <div class="climate-bar-wrap"><div class="climate-bar" style="width:5%;background:#5DCAA5"></div></div>
+      <span class="climate-val">15 mm</span>
+    </div>
+    <div class="climate-row">
+      <span class="climate-label">Dni słoneczne</span>
+      <div class="climate-bar-wrap"><div class="climate-bar" style="width:95%;background:#F0D080"></div></div>
+      <span class="climate-val">27 / 28</span>
+    </div>
+    <div class="climate-row">
+      <span class="climate-label">Temp. wody</span>
+      <div class="climate-bar-wrap"><div class="climate-bar" style="width:75%;background:#4FC6E0"></div></div>
+      <span class="climate-val">28°C</span>
+    </div>
+    <div class="climate-row">
+      <span class="climate-label">Wilgotność</span>
+      <div class="climate-bar-wrap"><div class="climate-bar" style="width:60%;background:#B0C4D8"></div></div>
+      <span class="climate-val">65%</span>
+    </div>
+    <p class="weather-note">Klimat historyczny · Średnie dla lutego 1991–2020 · Prognoza dostępna ~10 dni przed wyjazdem</p>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- SKŁAD -->
+<div class="section" id="plan">
+  <div class="section-title"><span>Uczestnicy</span>Skład grupy</div>
+  <div class="overview-grid">
+    <div class="ov-card"><div class="ov-icon">👥</div><div class="ov-label">Osoby</div><div class="ov-value">8 osób</div></div>
+    <div class="ov-card"><div class="ov-icon">🗓</div><div class="ov-label">Czas trwania</div><div class="ov-value">14 dni</div></div>
+    <div class="ov-card"><div class="ov-icon">💶</div><div class="ov-label">Budżet/os. (bez lotów)</div><div class="ov-value">1500–3000 €</div></div>
+    <div class="ov-card clickable" onclick="openWeather()">
+      <div class="ov-icon">🌤</div><div class="ov-label">Pogoda w lutym</div>
+      <div class="ov-value">Sprawdź</div><div class="ov-chevron">▾</div>
+    </div>
+  </div>
+  <div class="families">
+    <div class="family-card">
+      <div class="family-name">Rodzina 1 (Jarek)</div>
+      <div class="family-members">
+        <span class="member-pill pill-adult">Jarek</span>
+        <span class="member-pill pill-adult">Żona</span>
+        <span class="member-pill pill-kid">Dziecko 10 lat</span>
+        <span class="member-pill pill-kid">Dziecko 8 lat</span>
+        <span class="member-pill pill-kid">Dziecko 4 lata</span>
+      </div>
+    </div>
+    <div class="family-card">
+      <div class="family-name">Rodzina 2 (Wojtek)</div>
+      <div class="family-members">
+        <span class="member-pill pill-adult">Wojtek</span>
+        <span class="member-pill pill-adult">Żona</span>
+        <span class="member-pill pill-kid">Dziecko 8 lat</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRASA -->
+<div class="section">
+  <div class="section-title"><span>Trasa</span>14-dniowy plan podróży</div>
+  <div class="timeline-bar">
+    <div class="tl tl-bkk">Bangkok<small>Dni 1–2</small></div>
+    <div class="tl tl-cnx">Chiang Mai<small>Dni 3–5</small></div>
+    <div class="tl tl-koh">Koh Lanta<small>Dni 6–14</small></div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-wrap">
+    <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:340px;display:block;margin:0 auto;">
+      <!-- Thailand simplified outline -->
+      <path d="M155,30 L165,28 L178,32 L185,42 L182,55 L175,65 L178,75 L188,85 L192,98 L188,110 L195,120 L200,132 L198,145 L190,155 L185,168 L188,180 L182,192 L175,205 L172,218 L168,230 L165,242 L160,255 L155,265 L150,278 L146,292 L142,305 L140,318 L138,332 L136,345 L134,358 L133,368 L130,355 L128,342 L126,330 L124,318 L122,308 L118,296 L114,285 L110,272 L112,260 L110,248 L108,236 L106,224 L104,212 L100,200 L96,188 L95,175 L98,162 L102,150 L105,138 L108,126 L112,114 L115,102 L112,90 L108,78 L110,66 L118,56 L128,48 L138,38 L148,32 Z" fill="#C8DEB5" stroke="#8BAF6B" stroke-width="1.2"/>
+      <!-- Malay Peninsula (south) -->
+      <path d="M133,368 L131,378 L129,388 L128,395 L130,395 L132,388 L134,378 L136,368 Z" fill="#C8DEB5" stroke="#8BAF6B" stroke-width="1"/>
+      <!-- Sea labels -->
+      <text x="240" y="180" class="map-sea" transform="rotate(90,240,180)" text-anchor="middle">Zatoka Tajlandzka</text>
+      <text x="72" y="240" class="map-sea" transform="rotate(-90,72,240)" text-anchor="middle">Morze Andamańskie</text>
+
+      <!-- Chiang Mai marker -->
+      <circle cx="145" cy="88" r="13" fill="#3C3489" class="city-dot" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Thailand','_blank')"/>
+      <text x="145" y="92" class="city-num" text-anchor="middle">1</text>
+      <text x="162" y="89" class="map-label" font-weight="600" fill="#3C3489">Chiang Mai</text>
+      <text x="162" y="99" class="map-label">Dni 3–5</text>
+
+      <!-- Bangkok marker -->
+      <circle cx="155" cy="195" r="13" fill="#2C2C28" class="city-dot" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Bangkok+Thailand','_blank')"/>
+      <text x="155" y="199" class="city-num" text-anchor="middle">2</text>
+      <text x="172" y="195" class="map-label" font-weight="600" fill="#1A1A18">Bangkok</text>
+      <text x="172" y="205" class="map-label">Dni 1–2</text>
+
+      <!-- Koh Lanta marker -->
+      <circle cx="120" cy="345" r="13" fill="#185FA5" class="city-dot" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Koh+Lanta+Krabi+Thailand','_blank')"/>
+      <text x="120" y="349" class="city-num" text-anchor="middle">3</text>
+      <text x="137" y="345" class="map-label" font-weight="600" fill="#185FA5">Koh Lanta</text>
+      <text x="137" y="355" class="map-label">Dni 6–14</text>
+
+      <!-- Route line -->
+      <line x1="145" y1="101" x2="151" y2="182" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4,3" opacity=".6"/>
+      <line x1="148" y1="208" x2="126" y2="332" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4,3" opacity=".6"/>
+    </svg>
+    <p class="map-hint">📍 🗺 Kliknij marker aby otworzyć w Mapach Google</p>
+  </div>
+
+  <!-- BANGKOK -->
+  <div class="phase" id="bangkok">
+    <div class="phase-top">
+      <div class="phase-num num-bkk">1</div>
+      <div class="phase-meta">
+        <div class="phase-title-row"><span class="phase-name">Bangkok</span><span class="phase-days-badge">2 noce</span></div>
+        <div class="phase-desc">Przylot na BKK (Suvarnabhumi). Aklimatyzacja, miasto, kultura. Krótki pobyt ze względu na upał i 4-latkę.</div>
+      </div>
+    </div>
+    <hr class="phase-divider">
+    <ul class="days-list">
+      <li class="day-item">
+        <span class="day-num">Dzień 1</span>
+        <div class="day-content">
+          <div class="day-title">Przylot + aklimatyzacja</div>
+          <div class="day-acts">Transfer do hotelu. Odpoczynek po locie. Wieczorny spacer nad Chao Phraya — <a class="pl" href="https://www.asiatiquethailand.com/" target="_blank" rel="noopener">Asiatique Riverfront</a> (koło, jedzenie, zakupy).</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 2</span>
+        <div class="day-content">
+          <div class="day-title">Grand Palace + rejs</div>
+          <div class="day-acts"><a class="pl" href="https://www.royalgrandpalace.th/" target="_blank" rel="noopener">Grand Palace</a> i <a class="pl" href="https://watpho.com/" target="_blank" rel="noopener">Wat Pho</a> — wyjście o 8:00 przed upałem. Popołudniu rejs łódką po Chao Phraya. Wieczór: <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Yaowarat+Road+Chinatown+Bangkok+Thailand" target="_blank" rel="noopener">Chinatown (Yaowarat)</a> lub <a class="pl" href="https://www.iconsiam.com/" target="_blank" rel="noopener">Iconsiam</a>.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span><span class="act-tag warn">Grand Palace: max 2h z 4-latką</span></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CHIANG MAI -->
+  <div class="phase" id="chiangmai">
+    <div class="phase-top">
+      <div class="phase-num num-cnx">2</div>
+      <div class="phase-meta">
+        <div class="phase-title-row"><span class="phase-name">Chiang Mai</span><span class="phase-days-badge">3 noce</span></div>
+        <div class="phase-desc">Lot BKK→CNX (~1h, Air Asia / Thai). Chłodniejszy klimat 22–28°C — idealny dla dzieci. Kultura, słonie, przyroda.</div>
+      </div>
+    </div>
+    <hr class="phase-divider">
+    <ul class="days-list">
+      <li class="day-item">
+        <span class="day-num">Dzień 3</span>
+        <div class="day-content">
+          <div class="day-title">Przyjazd + stare miasto</div>
+          <div class="day-acts">Lot rano. Po południu: spacer po starym mieście w obrębie fosy — <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Wat+Phrathat+Doi+Suthep+Chiang+Mai+Thailand" target="_blank" rel="noopener">Wat Phrathat Doi Suthep</a>, <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Wat+Chedi+Luang+Chiang+Mai+Thailand" target="_blank" rel="noopener">Wat Chedi Luang</a>. Wieczór: <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Night+Bazaar+Thailand" target="_blank" rel="noopener">Night Bazaar</a>.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 4</span>
+        <div class="day-content">
+          <div class="day-title">Elephant Nature Park ⭐</div>
+          <div class="day-acts">Cały dzień w <a class="pl" href="https://www.elephantnaturepark.org/" target="_blank" rel="noopener">Elephant Nature Park</a> — kąpiel, karmienie, obserwacja słoni. Etyczne sanktuarium, min. wiek 2 lata. Rezerwacja z co najmniej 6-miesięcznym wyprzedzeniem.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span><span class="act-tag warn">Rezerwuj wcześnie!</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 5</span>
+        <div class="day-content">
+          <div class="day-title">Lekcja gotowania + Doi Inthanon</div>
+          <div class="day-acts">Rano: lekcja gotowania po tajsku (<a class="pl" href="https://www.thaifarmcooking.net/" target="_blank" rel="noopener">Thai Farm Cooking</a> lub <a class="pl" href="https://www.mamanoi.com/" target="_blank" rel="noopener">Mama Noi</a>). Po południu: <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Doi+Inthanon+National+Park+Chiang+Mai+Thailand" target="_blank" rel="noopener">Doi Inthanon</a> — najwyższy szczyt Tajlandii, dojazd autem, spacer do wodospadu.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- KOH LANTA -->
+  <div class="phase" id="kohlanta">
+    <div class="phase-top">
+      <div class="phase-num num-koh">3</div>
+      <div class="phase-meta">
+        <div class="phase-title-row"><span class="phase-name"><a class="pl" href="https://www.google.com/maps/search/?api=1&query=Koh+Lanta+Krabi+Thailand" target="_blank" rel="noopener">Koh Lanta</a></span><span class="phase-days-badge">9 nocy</span></div>
+        <div class="phase-desc">Lot CNX→KBV (Krabi) z przesiadką lub bezpośredni. Transfer speedboatem na wyspę (~1h). Luty = szczyt sezonu Andamanu — zero opadów, 30°C, turkusowa woda.</div>
+      </div>
+    </div>
+    <hr class="phase-divider">
+    <ul class="days-list">
+      <li class="day-item">
+        <span class="day-num">Dzień 6</span>
+        <div class="day-content">
+          <div class="day-title">Przyjazd na wyspę</div>
+          <div class="day-acts">Transfer na <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Koh+Lanta+Yai+Krabi+Thailand" target="_blank" rel="noopener">Koh Lanta</a>. Zameldowanie, obiad, pierwsza plaża. Wieczór: kolacja przy <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Long+Beach+Phra+Ae+Koh+Lanta+Thailand" target="_blank" rel="noopener">Long Beach</a>.</div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dni 7–8</span>
+        <div class="day-content">
+          <div class="day-title">Plaże Koh Lanta</div>
+          <div class="day-acts"><a class="pl" href="https://www.google.com/maps/search/?api=1&query=Long+Beach+Phra+Ae+Koh+Lanta+Thailand" target="_blank" rel="noopener">Long Beach (Phra Ae)</a> — płytkie wejście, idealne dla 4-latki. <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Klong+Nin+Beach+Koh+Lanta+Thailand" target="_blank" rel="noopener">Klong Nin</a> — spokojniejsza, mniej turystów. <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Klong+Dao+Beach+Koh+Lanta+Thailand" target="_blank" rel="noopener">Klong Dao</a> — restauracje, infrastruktura.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 9</span>
+        <div class="day-content">
+          <div class="day-title">4 Islands Snorkeling Tour ⭐</div>
+          <div class="day-acts">Całodniowa wycieczka łodzią na <a class="pl" href="https://www.google.com/maps/search/?api=1&query=4+Islands+Koh+Lanta+Snorkeling+Tour+Thailand" target="_blank" rel="noopener">4 wyspy</a> z snorkelingiem. Wybierz wolną łódź (longtail/slow boat), nie speedboat — ze względu na 4-latkę. Koralowce, żółwie, ryby.</div>
+          <div class="act-tags"><span class="act-tag ok">10 i 8 lat: samodzielnie</span><span class="act-tag warn">4 lata: kapok + rodzic</span><span class="act-tag warn">Nie speedboat</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 10</span>
+        <div class="day-content">
+          <div class="day-title">Kayak w mangrowych lasach</div>
+          <div class="day-acts">Półdniowy kayak przez <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Koh+Lanta+Mangrove+Kayaking+Thailand" target="_blank" rel="noopener">lasy mangrowe Koh Lanta</a>. Dwuosobowe kajaki: 4-latka z przodu, 8 i 10 lat może wiosłować.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 11</span>
+        <div class="day-content">
+          <div class="day-title">Railay Beach day trip ⭐</div>
+          <div class="day-acts">Łódką z <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Ao+Nang+Beach+Krabi+Thailand" target="_blank" rel="noopener">Ao Nang</a> na <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Railay+Beach+Krabi+Thailand" target="_blank" rel="noopener">Railay Beach</a> (15 min) — jedna z najpiękniejszych plaż świata, otoczona wapiennymi klifami.</div>
+          <div class="act-tags"><span class="act-tag ok">Wszystkie wieku</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dzień 12</span>
+        <div class="day-content">
+          <div class="day-title">Tiger Cave Temple + relaks</div>
+          <div class="day-acts">Rano: <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Wat+Tham+Suea+Tiger+Cave+Temple+Krabi+Thailand" target="_blank" rel="noopener">Tiger Cave Temple</a> w Krabi — 1237 schodków na szczyt dla 10 i 8-latka! Jedno z rodziców zostaje na dole z 4-latką.</div>
+          <div class="act-tags"><span class="act-tag warn">10 i 8 lat: wejście na szczyt</span><span class="act-tag warn">4 lata: dół z rodzicem</span></div>
+        </div>
+      </li>
+      <li class="day-item">
+        <span class="day-num">Dni 13–14</span>
+        <div class="day-content">
+          <div class="day-title">Wolny czas + powrót</div>
+          <div class="day-acts">Dzień 13: masaż tajski, zakupy, ostatnia plaża, kolacja pożegnalna. Dzień 14: transfer na <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Krabi+International+Airport+Thailand" target="_blank" rel="noopener">lotnisko Krabi</a> → Bangkok → Warszawa.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- WYSPY -->
+<div class="section">
+  <div class="section-title"><span>Wybór wyspy</span>Dlaczego Koh Lanta?</div>
+  <div class="island-grid">
+    <div class="island-card best">
+      <span class="island-best-badge">★ Rekomendowana</span>
+      <div class="island-name"><a class="pl" href="https://www.google.com/maps/search/?api=1&query=Koh+Lanta+Krabi+Thailand" target="_blank" rel="noopener">Koh Lanta</a></div>
+      <div class="island-note">Płytkie, spokojne plaże — idealne dla 4-latki. Mniej tłumów niż Phuket. Dobra infrastruktura dla rodzin. Kayak w mangrowych w samym sercu wyspy. Ceny niższe o ~30%.</div>
+    </div>
+    <div class="island-card">
+      <div class="island-name"><a class="pl" href="https://www.google.com/maps/search/?api=1&query=Koh+Yao+Noi+Phang+Nga+Thailand" target="_blank" rel="noopener">Koh Yao Noi</a> (alt.)</div>
+      <div class="island-note">Spokojny, lokalny klimat. Piękne widoki na <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Phang+Nga+Bay+Thailand" target="_blank" rel="noopener">Phang Nga Bay</a>. Mniej atrakcji — bardziej detoks.</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOTY -->
+<div class="section" id="loty">
+  <div class="section-title"><span>Transport</span>Plan lotów</div>
+
+  <!-- CNY WARNING -->
+  <div style="background:#5C1A1A;border:1px solid #A33;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:14px;display:flex;gap:12px;">
+    <span style="font-size:20px;flex-shrink:0;">🚨</span>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#FFB3B3;margin-bottom:4px;">Uwaga — Chiński Nowy Rok 2027 (CNY)</div>
+      <div style="font-size:13px;color:rgba(255,200,200,.85);line-height:1.6;">Wasza trasa <strong style="color:white;">7–20 lutego</strong> pokrywa się w <strong style="color:white;">100%</strong> z CNY 2027 (6–20 lutego, Rok Kozy). To szczyt cen lotów do Azji Południowo-Wschodniej — nawet <strong style="color:white;">+30–50%</strong> drożej niż w pozostałe tygodnie. Bangkok będzie wyjątkowo zatłoczony. Rozważ przesunięcie o tydzień wcześniej (<strong style="color:white;">1–14 lutego</strong>) lub po 20 lutego.</div>
+    </div>
+  </div>
+
+  <!-- LOT DIRECT -->
+  <div style="background:#0C2E1A;border:1px solid #1D9E75;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:14px;display:flex;gap:12px;">
+    <span style="font-size:20px;flex-shrink:0;">🟢</span>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#5DCAA5;margin-bottom:4px;">Nowość — LOT bezpośredni WAW → BKK od 26 października 2026</div>
+      <div style="font-size:13px;color:rgba(180,240,210,.8);line-height:1.6;">Pierwsza bezpośrednia linia Polska–Tajlandia w historii. Loty 5×/tydzień: pon, śr, czw, sob, nd. Lot LO65: wylot z Warszawy po południu. Lot LO66: powrót z Bangkoku rano. Brak przesiadek przez Dubai/Doha — ok. 10–11h w powietrzu zamiast 13h. <a class="pl" href="https://www.lot.com/pl/pl" target="_blank" rel="noopener" style="color:#5DCAA5;">Bilety już w sprzedaży na lot.com</a></div>
+    </div>
+  </div>
+
+  <!-- TRASA -->
+  <div class="prac-card" style="margin-bottom:14px">
+    <div class="prac-title">Trasa lotów — 8 osób</div>
+    <ul class="prac-list">
+      <li><strong>WAW → BKK</strong> (<a class="pl" href="https://www.google.com/maps/search/?api=1&query=Suvarnabhumi+Airport+Bangkok+Thailand" target="_blank" rel="noopener">Suvarnabhumi</a>) — LOT bezpośredni ~10–11h <em>lub</em> z przesiadką: Emirates, Qatar, Turkish (~13h). Powrót na to samo lotnisko BKK.</li>
+      <li><strong>BKK → CNX</strong> (<a class="pl" href="https://www.google.com/maps/search/?api=1&query=Don+Mueang+Airport+Bangkok+Thailand" target="_blank" rel="noopener">Don Mueang</a>) — lot wewnętrzny ~1h, Air Asia / Nok Air. ~30–60 EUR/os.</li>
+      <li><strong>CNX → KBV</strong> (<a class="pl" href="https://www.google.com/maps/search/?api=1&query=Krabi+International+Airport+Thailand" target="_blank" rel="noopener">Krabi</a>) — z przesiadką w BKK lub sezonowy bezpośredni. ~40–80 EUR/os.</li>
+      <li><strong>KBV → BKK → WAW</strong> — powrót. Cała trasa ok. 650–1000 EUR/os. (wyżej przez CNY).</li>
+    </ul>
+  </div>
+
+  <!-- REKOMENDACJA -->
+  <div style="background:var(--amber-light);border:1px solid #EF9F27;border-radius:12px;padding:1.1rem 1.5rem;margin-bottom:14px;display:flex;gap:12px;">
+    <span style="font-size:18px;flex-shrink:0;">📅</span>
+    <div style="font-size:13px;color:var(--amber);line-height:1.6;">
+      <strong style="display:block;margin-bottom:2px;">Rezerwuj bilety: maj–sierpień 2026</strong>
+      Dla grupy 8 osób na luty 2027 to optymalne okno — ceny jeszcze stabilne, miejsca dostępne. LOT jest już w sprzedaży. Po sierpniu 2026 ceny zaczną rosnąć, szczególnie przez CNY.
+    </div>
+  </div>
+
+  <!-- MONITOR -->
+  <div class="flights-monitor">
+    <div class="flights-header">
+      <div>
+        <div class="flights-title">✈ Monitor cen lotów</div>
+        <div class="flights-route">WAW ⇄ BKK (Suvarnabhumi) · 7–20 lutego 2027 (±2 dni) · 8 osób</div>
+      </div>
+    </div>
+    <div class="flights-links">
+      <a class="fl-btn fl-google" href="https://www.google.com/flights#flt=WAW.BKK.2027-02-07*BKK.WAW.2027-02-20;c:PLN;e:1;sd:1;t:f" target="_blank" rel="noopener">✈ Google Flights</a>
+      <a class="fl-btn fl-sky" href="https://www.skyscanner.pl/transport/loty/waw/bkk/20270207/20270220/?adults=8&cabinclass=economy&rtn=1" target="_blank" rel="noopener">🔵 Skyscanner</a>
+      <a class="fl-btn fl-kayak" href="https://www.kayak.pl/flights/WAW-BKK/2027-02-07/2027-02-20/8adults?fs=flexdates=2" target="_blank" rel="noopener">🟠 Kayak</a>
+      <a class="fl-btn" style="background:#00438E;color:white;" href="https://www.lot.com/pl/pl/rozklad-lotow" target="_blank" rel="noopener">🟦 LOT</a>
+    </div>
+    <div class="flights-note">
+      <strong>📧 Alerty cenowe — masz już konta na wszystkich trzech platformach</strong>
+      Wyszukaj trasę WAW→BKK, 8 osób, luty 2027 i włącz alert na każdej z platform:
+      <ul class="alert-steps">
+        <li><strong>Google Flights</strong> → przełącznik "Śledź ceny" na stronie wyników → alert na Gmail.</li>
+        <li><strong>Skyscanner</strong> → "Ustaw alert cenowy" po wyszukaniu trasy.</li>
+        <li><strong>Kayak</strong> → "Śledź ceny" / "Price Alert" po wyszukaniu.</li>
+        <li><strong>LOT</strong> → zapisz się do newslettera lub sprawdzaj regularnie — nowa trasa, ceny dynamiczne.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- BUDŻET -->
+<div class="section">
+  <div class="section-title"><span>Finanse</span>Szacunkowy budżet</div>
+  <div class="prac-card">
+    <div class="prac-title">Na osobę dorosłą (14 dni, bez lotów)</div>
+    <table class="budget-table">
+      <tr><td>Hotele (Bangkok 2n, Chiang Mai 3n, Koh Lanta 9n)</td><td>750–1100 €</td></tr>
+      <tr><td>Jedzenie (restauracje + street food)</td><td>200–320 €</td></tr>
+      <tr><td>Loty wewnętrzne (3 odcinki)</td><td>80–150 €</td></tr>
+      <tr><td>Aktywności (słonie, snorkeling, kayak, świątynie)</td><td>150–250 €</td></tr>
+      <tr><td>Transport lokalny (taxi, tuk-tuk, transfer na wyspę)</td><td>60–100 €</td></tr>
+      <tr><td>Różne (upominki, SIM card, nieplanowane)</td><td>50–100 €</td></tr>
+      <tr class="budget-total-row"><td>Razem na osobę (bez lotów)</td><td>1290–2020 €</td></tr>
+    </table>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:10px">Dzieci 4–10 lat płacą ~60–70% ceny dorosłego w hotelach i na aktywnościach.</p>
+</div>
+
+<!-- PRAKTYCZNE -->
+<div class="section">
+  <div class="section-title"><span>Informacje praktyczne</span>Przygotowania</div>
+  <div class="practical-grid">
+    <div class="prac-card">
+      <div class="prac-title">Wiza i wjazd</div>
+      <ul class="prac-list">
+        <li>Polacy — bezwizowo do 30 dni (Thailand Visa Exemption)</li>
+        <li>Paszport ważny min. 6 miesięcy od daty wjazdu</li>
+        <li>Formularz TM6 (arrival card) — wypełnić w samolocie</li>
+        <li>Dowód rezerwacji hotelu przy wjeździe</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-title">Szczepienia (zalecane)</div>
+      <ul class="prac-list">
+        <li>Tężec + błonica — refresh co 10 lat</li>
+        <li>Hepatitis A — obowiązkowo</li>
+        <li>Hepatitis B — jeśli nie ma</li>
+        <li>Dur brzuszny — zalecane</li>
+        <li>Malaria: Koh Lanta — niskie ryzyko; skonsultuj z lekarzem</li>
+        <li>Wizyta w poradni medycyny tropikalnej ~8 tygodni przed</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-title">Co spakować z dziećmi</div>
+      <ul class="prac-list">
+        <li>Krem SPF 50+ — dużo (do kupienia na miejscu)</li>
+        <li>Repelent na komary (DEET lub Icaridin)</li>
+        <li>Leki podstawowe: ibuprofen, rehydrat, antybiotyk</li>
+        <li>Kamizelki do snorkelingu dla dzieci</li>
+        <li>Buty do wody (koralowce)</li>
+        <li>Przewijaki / mokre chusteczki dla 4-latki</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-title">Przydatne aplikacje</div>
+      <ul class="prac-list">
+        <li>Grab — taxi i jedzenie (jak Uber)</li>
+        <li>Google Translate (pobierz język tajski offline)</li>
+        <li>XE Currency — przelicznik walut</li>
+        <li>Maps.me — mapy offline Tajlandii</li>
+        <li>AIS / DTAC SIM — karta lokalna z LTE</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- WSKAZÓWKI -->
+<div class="section">
+  <div class="section-title"><span>Wskazówki</span>Kluczowe rzeczy do zapamiętania</div>
+  <div class="tip-box"><span class="tip-icon">📅</span><div class="tip-text"><strong>Elephant Nature Park — rezerwuj natychmiast</strong>W lutym miejsca znikają z 6–9-miesięcznym wyprzedzeniem. Rezerwuj przez <a class="pl" href="https://www.elephantnaturepark.org/" target="_blank" rel="noopener">elephantnaturepark.org</a>.</div></div>
+  <div class="tip-box"><span class="tip-icon">🏖</span><div class="tip-text"><strong>Hotele Koh Lanta — rezerwuj z rocznym wyprzedzeniem</strong>Dla 8 osób: 2 rodzinne pokoje lub 2 bungalowy. W lutym wyspa jest pełna. Polecany rejon: <a class="pl" href="https://www.google.com/maps/search/?api=1&query=Long+Beach+Phra+Ae+Koh+Lanta+Thailand" target="_blank" rel="noopener">Long Beach (Phra Ae)</a>.</div></div>
+  <div class="tip-box"><span class="tip-icon">💱</span><div class="tip-text"><strong>Waluta i płatności</strong>Bat tajski (THB). 1 EUR ≈ 38–40 THB. Wypłacaj w bankomatach Bangkok Bank lub Kasikorn. Street food — wyłącznie gotówka.</div></div>
+  <div class="tip-box"><span class="tip-icon">🌡</span><div class="tip-text"><strong>Pogoda w lutym na Andamanie</strong>29–32°C w dzień, 24°C w nocy. Brak opadów. Morze spokojne, widoczność pod wodą do 20m. Najlepszy miesiąc roku dla tego regionu.</div></div>
+  <div class="tip-box"><span class="tip-icon">👶</span><div class="tip-text"><strong>Wskazówki z 4-latką</strong>Aktywności rano (7–11) lub wieczorem. Środek dnia (12–15) — sjesta lub plaża pod parasolem. Zamawiaj "mai phet" (bez ostrości). Tajowie uwielbiają małe dzieci.</div></div>
+</div>
+
+<!-- COPY LINK -->
+<div class="section" style="padding-bottom:2rem;">
+  <div class="section-title"><span>Udostępnij</span>Link do planu</div>
+  <div class="copy-wrap">
+    <span class="copy-url">https://thai-2027-v10.netlify.app/</span>
+    <span class="copy-confirm" id="copyConfirm">✓ Skopiowano!</span>
+    <button class="copy-btn" onclick="copyLink()">Kopiuj</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  Plan podróży · Jarek &amp; Wojtek · Tajlandia, luty 2027<br>
+  Opracowany z pomocą Claude (Anthropic) · Ceny orientacyjne — weryfikuj przed rezerwacją
+</div>
+
+<script>
+function openWeather(){document.getElementById('weatherModal').classList.add('open');}
+function closeWeather(){document.getElementById('weatherModal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWeather();});
+
+function copyLink(){
+  const url='https://thai-2027-v10.netlify.app/';
+  navigator.clipboard.writeText(url).then(()=>{
+    const c=document.getElementById('copyConfirm');
+    c.style.display='inline';
+    setTimeout(()=>{c.style.display='none';},2500);
+  }).catch(()=>{
+    prompt('Skopiuj link:',url);
+  });
+}
+
+// Active nav link on scroll
+const sections=[{id:'plan',a:'#plan'},{id:'bangkok',a:'#bangkok'},{id:'chiangmai',a:'#chiangmai'},{id:'kohlanta',a:'#kohlanta'},{id:'loty',a:'#loty'}];
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+      const link=document.querySelector(`.nav-links a[href="${'#'+e.target.id}"]`);
+      if(link)link.classList.add('active');
+    }
+  });
+},{threshold:0.3});
+sections.forEach(s=>{const el=document.getElementById(s.id);if(el)observer.observe(el);});
+</script>
+</body>
+</html>
