@@ -497,7 +497,10 @@ a.pl:hover{color:var(--amber);}
 
 <!-- LOTY -->
 <div class="section" id="loty">
-  <div class="section-title"><span>Transport</span>Plan lotów</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+    <div class="section-title" style="margin-bottom:0"><span>Transport</span>Plan lotów</div>
+    <button id="monitor-toggle" onclick="toggleMonitor()" style="background:var(--dark);color:var(--gold);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;">🔔 Monitor: włączony</button>
+  </div>
 
   <div style="background:#5C1A1A;border:1px solid #A33;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:14px;display:flex;gap:12px;">
     <span style="font-size:20px;flex-shrink:0;">🚨</span>
@@ -534,7 +537,7 @@ a.pl:hover{color:var(--amber);}
     </div>
   </div>
 
-  <div class="flights-monitor">
+  <div class="flights-monitor" id="flights-monitor-box">
     <div class="flights-header">
       <div>
         <div class="flights-title">✈ Monitor cen lotów</div>
@@ -665,6 +668,14 @@ a.pl:hover{color:var(--amber);}
 function openWeather(){document.getElementById('weatherModal').classList.add('open');}
 function closeWeather(){document.getElementById('weatherModal').classList.remove('open');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWeather();});
+function toggleMonitor(){
+  const m=document.getElementById('flights-monitor-box');
+  const b=document.getElementById('monitor-toggle');
+  const hidden=m.style.display==='none';
+  m.style.display=hidden?'block':'none';
+  b.textContent=hidden?'🔔 Monitor: włączony':'🔕 Monitor: wyłączony';
+  b.style.opacity=hidden?'1':'.5';
+}
 function copyFlight(url,id){
   navigator.clipboard.writeText(url).then(()=>{
     const el=document.getElementById(id);
